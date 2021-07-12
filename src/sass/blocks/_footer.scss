@@ -1,0 +1,33 @@
+.footer{
+    position: relative;
+    height: 630px;
+    &-info{
+        position: absolute;
+        background-color: #c70101;
+        width: 460px;
+        height: 270px;
+        right: 50%;
+        transform: translateX(50%);
+        top: 0;
+        &__address{
+            margin-top: 50px;
+            font-weight: 500;
+            font-size: 20px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+        &__tel{
+            margin-top: 36px;
+            display: block;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+        &__socials{
+            display: flex;
+            justify-content: space-between;
+            margin: 36px 124px 0 124px;
+        }
+    }
+}
