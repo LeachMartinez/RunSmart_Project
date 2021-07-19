@@ -13,8 +13,6 @@ $(document).ready(function(){
       .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
   });
 
-
-
   function toggleSlide(item){
     $(item).each(function(i){
       $(this).on('click', function(e){
@@ -24,6 +22,76 @@ $(document).ready(function(){
       })
     });
   };
+
   toggleSlide('.catalog-item__back');
   toggleSlide('.catalog-item__link');
+
+  $('[data-modal=consultation]').on('click', function(){
+    $('.overlay, #consultation').fadeIn();
+  });
+
+  $('.button_mini').each(function(i){
+     $(this).on('click', function(){
+       $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+       $('.overlay, #order').fadeIn();
+      });
+  });
+  
+  $('.modal__close').on('click', function(){
+    $('.overlay, #consultation, #thanks, #oreder').fadeOut();
+  });
+  
+  function validateForms(form){
+    $(form).validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2,
+        },
+        phone: {
+          required: true,
+          minlength: 11 
+        },
+        email: {
+          required: true,
+          email: true
+        }
+      },
+      messages: {
+        name: {
+          required: 'Пожалуйста, введите своё имя',
+          minlength: jQuery.validator.format('Введите минимум {0} символа!')
+          },
+        phone: {
+          required: 'Пожалуйста, введите свой номер телефона',
+          minlength: 'Введите минимум {0} символов!'
+          },
+        email:  'Неправильно введен адрес почты'
+      }
+      });
+  }
+
+  validateForms('#consultation form');
+  validateForms('#order form');
+  validateForms('#main-form');
+
+
+  $('input[name=phone]').mask("+7 (999)-99-99");
+
+  $('form').submit(function (e){
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: 'mailer/smart.php',
+      data: $(this).serialize()
+    }).done(function(){
+      $(this).find('input').val('');
+      $('#consultation, #order').fadeOut();
+      $('.overlay, #thanks').fadeIn();
+
+      $('form').trigger('reset');
+    });
+    return false;
+
+  });
 });
