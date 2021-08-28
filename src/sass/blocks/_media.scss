@@ -1,0 +1,124 @@
+@media (max-width: 991px){
+    .container{
+        max-width: 700px;
+    }
+    .carousel{
+        padding: 81px 0;
+        &__iner{
+          position: relative;
+          width: 600px;
+          margin: 0 auto; 
+          img{
+              width: 100%;
+          }
+        }
+    }
+    .catalog{
+        &__content{
+            justify-content: space-around;
+        }
+    }
+}
+
+@media (max-width:425px){
+    .header{
+        margin-left: 10px;
+        margin-right: 10px;
+        &__logo{
+            width: 200px;
+        }
+        &__phone{
+            font-size: 17px;
+        }
+        &__official{
+            display: none;
+        }
+    }
+    .promo{
+        &__wrapper{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        &__header{
+            font-size: 36px;
+            text-align: right;
+        }
+        &__subheader{
+            font-size: 21px;
+            text-align: right;
+        }
+        &__icons{
+            justify-content: flex-end;
+        }
+        &__icon{
+            margin-right: 1rem;
+        }
+    }
+    .advantages{
+        min-height: auto;
+        &__descr{
+            display: none;
+        }
+    }
+    .title.title_left{
+        font-size: 28px;
+        text-align: center;
+    }
+    .consultation{
+        padding-right: 20px;
+        padding-left: 20px;
+        &__descr{
+            text-align: center;
+            font-size: 15px;
+        }
+    }
+    .feed-form{
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    .carousel{
+        padding: 81px 0;
+        &__iner{
+          position: relative;
+          width: 350px;
+          margin: 0 auto; 
+          img{
+              width: 100%;
+          }
+        }
+    }
+    .catalog{
+        &__tabs{
+            flex-direction: column;
+        }
+        &__tab{
+            margin-bottom: 20px;
+        }
+    }
+    .review{
+        &-item{
+            flex-direction: column;
+            margin-left: 20px;
+            margin-right: 20px;
+            &__text{
+                margin-top: 15px;
+            }
+        }
+    }
+    .footer{
+        &-info{
+            width: 100vw;
+            &__socials{
+                margin: 36px 60px 0 60px;
+            }
+        }
+        ymaps{
+            width: 100vw;
+        }
+    }
+    .modal{
+        &__close{
+            display: none;
+        }
+    }
+}
